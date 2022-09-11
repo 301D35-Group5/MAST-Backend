@@ -37,6 +37,11 @@ server.get("/bestAnime", getBestAnime);
 let getAnimeGenre = require("./animeGenre.js");
 server.get("/animegenre", getAnimeGenre);
 
+const getShows = require('./TV');
+const getBestShows = require('./BestShows');
+server.get('/Shows', getShows)
+server.get('/BestShows', getBestShows)
+
 
 server.get('/getReco', getRecoHandler);
 server.post('/addReco', addRecoHandler);

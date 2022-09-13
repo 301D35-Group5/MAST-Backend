@@ -17,7 +17,7 @@ server.use(express.json());
 
 const PORT = process.env.PORT || 3001;
 
-mongoose.connect("mongodb://localhost:27017/tourism", {
+mongoose.connect(process.env.MongoDB, {
   //locally
   useNewUrlParser: true,
   useUnifiedTopology: true,

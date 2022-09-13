@@ -2,7 +2,7 @@ const axios = require('axios');
 
 function getBestShows (req, res) {
     let filter = req.query.filter;
-    let bestURL = `https://api.simkl.com/tv/best/${filter}?type=series&client_id=8bec25d423932d853d8896015f620b330266cabb0fec2cccb2886c2817860dc4`
+    let bestURL = `https://api.simkl.com/tv/best/${filter}?type=series&client_id=${prcoess.env.ANIME_KEY}`
     
     axios.get(bestURL).then(result => {
         let showsArr = result.data;

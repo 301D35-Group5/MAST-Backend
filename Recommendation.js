@@ -62,6 +62,6 @@ async function seedData() {
   await fourthReco.save();
 }
 
-seedData();
+// seedData();
 
 module.exports = recoModel;

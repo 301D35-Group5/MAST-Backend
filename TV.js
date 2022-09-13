@@ -3,7 +3,7 @@ const axios = require('axios');
 async function getShows(req,res) {
 const genre = req.query.genre;
 const year =req.query.year
-  const URL = `https://api.simkl.com/tv/genres/${genre}/${year}/sort?client_id=${prcoess.env.ANIME_KEY}`;
+  const URL = `https://api.simkl.com/tv/genres/${genre}/${year}/sort?client_id=${process.env.ANIME_KEY}`;
 
   axios.get(URL).then( result => {
     let showsArr = result.data;

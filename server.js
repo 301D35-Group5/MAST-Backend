@@ -59,7 +59,7 @@ function getRecoHandler(req, res) {
     if (err) {
       console.log(err);
     } else {
-      console.log(result);
+      // console.log(result);
       res.send(result);
     }
   });
@@ -67,19 +67,20 @@ function getRecoHandler(req, res) {
 
 //http://localhost:3001/addReco
 async function addRecoHandler(req, res) {
-  const { img, seriesName, description, rating, year } = req.body; //for strcture
+  const { img, seriesName, description, rating, year, email } = req.body; //for strcture
   await recoModel.create({
     img: img,
     seriesName: seriesName,
     description: description,
     rating: rating,
     year: year,
+    email: email,
   });
-  recoModel.find({}, (err, result) => {
+  recoModel.find({email:email}, (err, result) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(result);
+      // console.log(result);
       res.json(result);
     }
   });
@@ -94,7 +95,7 @@ function deleteRecoHandler(req, res) {
       if (err) {
         console.log(err);
       } else {
-        console.log(result);
+        // console.log(result);
         res.send(result);
       }
     });
@@ -104,21 +105,17 @@ function deleteRecoHandler(req, res) {
 //http://localhost:3001/updateReco/:id
 function updateRecoHandler(req, res) {
   const id = req.params.id;
-  const { img, seriesName, description, rating, year } = req.body;
-  recoModel.findByIdAndUpdate(
-    id,
-    { img, seriesName, description, rating, year },
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(result);
-        res.json(result);
-      }
+  const { seriesName, description, rating, year,email } = req.body;
+  recoModel.findByIdAndUpdate(id, { seriesName, description, rating, year,email }, (err, result) => {
+    if (err) {
+      console.log(err)
     }
-  );
+    else {
+      // console.log(result);
+      res.json(result);
+    }
+  })
 }
-
 //here profile
 server.get("/getProf", getProfHandler);
 server.post("/addProf", addProfHandler);
@@ -131,7 +128,7 @@ function getProfHandler(req, res) {
     if (err) {
       console.log(err);
     } else {
-      console.log(result);
+      // console.log(result);
       res.send(result);
     }
   });
@@ -149,7 +146,7 @@ async function addProfHandler(req, res) {
     if (err) {
       console.log(err);
     } else {
-      console.log(result);
+      // console.log(result);
       res.json(result);
     }
   });
@@ -166,7 +163,7 @@ function deleteProfHandler(req, res) {
       if (err) {
         console.log(err);
       } else {
-        console.log(result);
+        // console.log(result);
         res.send(result);
       }
     });

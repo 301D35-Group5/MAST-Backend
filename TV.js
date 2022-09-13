@@ -20,7 +20,7 @@ class Shows {
   constructor(item) {
     this.title = item.title,
     this.year = item.year,
-    this.rating = item.ratings.imdb.rating
+    this.rating = item.ratings.simkl.rating
     this.poster = `https://simkl.in/posters/${item.poster}_c.webp`
   }
 }
